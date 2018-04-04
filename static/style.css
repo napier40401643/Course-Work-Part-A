@@ -25,6 +25,15 @@ a{
 	width: 10ex;
 }
 
+.nav_button{
+	border: solid thin black;
+	padding: 1ex;
+	margin: 1ex;
+	border-radius: 0.5ex;
+	width: 15ex;
+	text-align: center;
+	display: inline-block;
+}
 .properties div div:last-child{
 	font-weight: bold;
 }
