@@ -1,17 +1,20 @@
 body{
-	font-family: arial;
+	font-family: times;
+	font-size: 2ex;
+	background: #00FFFF;
+	padding-left: 4ex;
 }
 img.big{
-	width: 200px;
-	border: solid thin red;
+	width: 450px;
+	border: solid thin #abebc6;
 	position: absolute;
-	left: 20ex;
+	left: 50ex;
+	right: 100ex;
 	top: 10ex;
 }
 
 img.tiny{
-	width: 20px;
-	border: solid thin red;
+	width: 25px;
 }
 
 a{
@@ -22,18 +25,68 @@ a{
 }
 
 .properties div div:first-child{
-	width: 10ex;
+	width: 20ex;
+	padding-top: 2ex;
 }
 
-.nav_button{
-	border: solid thin black;
+.nav_button input{
+	display: inline-block;
+	background-color: teal;
+	font-family: Georgia;
+	border: solid thin pink;
 	padding: 1ex;
 	margin: 1ex;
-	border-radius: 0.5ex;
-	width: 15ex;
+	border-radius: 0.4ex;
+	width: 17ex;
+	height: 7ex;
 	text-align: center;
+	font-size: 1.4ex;
+	font-weight: bold;
+}
+.nav_button{
 	display: inline-block;
 }
 .properties div div:last-child{
 	font-weight: bold;
 }
+.button{
+	border: solid thin pink;
+	padding: 1ex;
+	margin: 2ex;
+	border-radius: 0.4ex;
+	width: 7ex;
+	text-align: center;
+	display: inline-block;
+	background-color:  #d1f2eb;
+	font-family: Georgia;
+}
+.submit{
+	border: solid thin pink;
+	border-radius: 0.4ex;
+	width: 10ex;
+	height: 5.5ex;
+	background-color:  #d1f2eb;
+	font-family: Georgia;
+	font-size: 2ex;
+	color: blue;
+}
+.submit1{
+	border-radius: 0.6ex;
+	width: 10ex;
+	height: 5ex;
+	font-family: Georgia;
+	font-size: 2ex;
+	color: blue;
+
+}
+.tex{
+	width: 22ex;
+	height: 3.5ex;
+	font-weight: bold;
+}
+.createform{
+
+	padding-left: 3ex;
+	padding: 1ex;
+}
+

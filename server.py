@@ -1,44 +1,100 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import json
 
 w = json.load(open("worldl.json"))
-page_size = 20
+for c in w:
+        c['tld'] = c['tld'][1:]
+page_size = 25
 app = Flask(__name__)
 
 @app.route('/')
 def mainPage():
-#    return '<br> '.join([c['name'] for c in w])
-    return render_template('index.html', w=w[0:page_size])
+    return render_template('main.html', page_number=0, w=w[0:page_size],
+                           page_size=page_size)
 
-@app.route('/begin/<b>')
-def beginPage(b):
-    bn = int(b)
-    return render_template('index.html', w=w[bn:bn+page_size],
-                           page_number = bn,
+@app.route('/Begin/<m>')
+def BeginPage(m):
+    num = int(m)
+    return render_template('main.html', w=w[num:num+page_size],
+                           page_number = num,
                            page_size = page_size
                            )
 
-@app.route('/continent/<a>')
-def continentPage(a):
-    cl= [c for c in w if c['continent']== a] 
+@app.route('/Country/<cty>')
+def CountryPage(cty):
+#    return w[int(i)]['name'] + w[int(i)]['continent'] + w[int(i)]['capital']
+    return render_template('For_Country.html', c= w[int(cty)])
+
+
+@app.route('/continent/<con>')
+def continentPage(con):
+    cl= [c for c in w if c['continent']== con] 
     return render_template(
-        'continent.html', len_of_cl = len(cl),
+        'For_Continent.html', len_of_cl = len(cl),
         cl = cl,
-        a = a
+        con = con
         )
 
-@app.route('/country/<i>')
-def countryPage(i):
-#    return w[int(i)]['name'] + w[int(i)]['continent'] + w[int(i)]['capital']
-    return render_template('country.html', c= w[int(i)])
-
-@app.route('/countryByname/<n>')
-def countryBynamePage(n):
+@app.route('/CountryName/<C_Name>')
+def CountryNamePage(C_Name):
     c=None
-    for x in w:
-        if x['name']==n:
-            c=x
-    return render_template('country.html', c= c)
+    for n in w:
+        if n['name']==C_Name:
+            c=n
+    return render_template('For_Country.html', c= c)
+
+
+@app.route('/EditCountryName/<C_Name>')
+def EditCountryNamePage(C_Name):
+    c=None
+    for n in w:
+        if n['name']==C_Name:
+            c=n
+    return render_template('For_CountryEdit.html', c= c)
+
+
+@app.route('/UpdateCountryName')
+def UpdateCountryNamePage():
+    C_Name = request.args.get('name')
+    c=None
+    for n in w:
+        if n['name'] == C_Name:
+            c = n
+    c['capital'] = request.args.get('capital')
+    c['continent'] = request.args.get('continent')
+    return render_template('For_CountryEdit.html', c = c)
+
+
+@app.route('/DeleteCountry/<C_Name>')
+def DeleteCountryPage(C_Name):
+    i=0
+    for c in w:
+        if c['name']==C_Name:
+            break
+        i=i+1
+    del w[i]
+    return render_template('main.html',
+                           page_number = 0,
+                           page_size = page_size,
+                           w=w[0:page_size])
+
+@app.route('/CreateCountry')
+def CreateCountryByPage():
+    c=None   
+    return render_template('For_CreateCountry.html', c=c)
+
+@app.route('/SaveCountry')
+def SaveCountryByPage():
+    c={}
+    c['name'] = request.args.get('name')
+    c['capital'] = request.args.get('capital')
+    c['continent'] = request.args.get('continent')
+    c['population'] = request.args.get('population')
+    c['tld'] = request.args.get('tld')
+    c['area'] = request.args.get('area')
+    c['gdp'] = int(request.args.get('gdp'))
+    w.append(c)
+    return render_template('For_Country.html', c=c)     
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=5643, debug=True)

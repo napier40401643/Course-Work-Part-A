@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+	<link rel='stylesheet' href='/static/style.css'>
+</head>
+	<body>
+		<form action="/editcountryByname">
+		<h1>{{c['name']}}</h1>
+		<div class='properties'>
+		<div>
+			<div>Capital :</div>
+			<div><input class="tex" name="capital" value="{{c['capital']}}"></div>
+		</div>
+		<div>
+			<div>Continent :</div>
+			<div><input class="tex" name="continent" value="{{c.continent}}"></div>
+		</div>
+		<div>
+			<div>Population :</div>				
+			<div>{{c['population']}}</div>
+		</div>
+		<div>
+			<div>TLD :</div>				
+			<div>{{c['tld']}}</div>
+		</div>
+		<div>
+			<div>Area :</div>				
+			<div>{{c['area']}}</div>
+		</div>
+		<div>
+			<div>GDP (million $) :</div>				
+			<div>{{"{:,.0f}".format(c['gdp']/200000)}}</div>
+		</div>
+		<div>
+			<div><img src="{{c['flag']}}" class="big"></div>
+		</div>
+		<input class="submit" type="submit">
+		</form>
+		<div class="button">
+			<a href="/delete/{{c.name}}">Delete</a>
+		</div>
+	</body>
+</html>

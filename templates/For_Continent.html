@@ -4,11 +4,11 @@
 	<link rel='stylesheet' href='/static/style.css'>
 </head>
 	<body>
-		<h1>{{a}}</h1>
-		<div>There are {{len_of_cl}} countries in {{a}}</div>
+		<h1>{{con}}</h1>
+		<div>There are {{len_of_cl}} countries in {{con}}</div>
 		<ul>
 			{% for c in cl %}
-			<li><a href="/countryByname/{{c.name}}">
+			<li><a href="/CountryName/{{c.name}}">
 			<img src='{{c.flag}}' class="tiny"> {{c.name}}</a></li>
 			{% endfor %}
 		</ul>

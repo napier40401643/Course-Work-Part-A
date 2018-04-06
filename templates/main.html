@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<link rel='stylesheet' href='/static/style.css'>
+</head>
+	<body>
+		<h1>List of Countries</h1>
+		<div>There are {{w|length}} countries on this page.</div>
+		<ul>
+			{% for c in w %}
+			<li><a href="/CountryName/{{c.name}}">
+			<img src=x'{{c.flag}}' class="tiny"> {{c.name}}</a></li>
+			{% endfor %}
+		</ul>
+		{% if page_number==0 %}
+		<div class="nav_button">
+			<a href="/Begin/{{page_number-page_size}}" ><input type="submit" disabled="disabled" value="Previous Page"></a>			
+		</div>
+		{% else%}
+		<div class="nav_button">
+			<a href="/Begin/{{page_number-page_size}}" ><input type="submit" value="Previous Page"></a>
+		</div>
+		{% endif %}
+		
+		{% if page_number>100 %}
+		<div class="nav_button">
+			<a href="/Begin/{{page_number+page_size}}" ><input type="submit" disabled="disabled" value="Next Page"></a>
+		</div>
+		{% else%}
+		<div class="nav_button">
+			<a href="/Begin/{{page_number+page_size}}" ><input type="submit" value="Next Page"></a>
+		</div>
+		{% endif %}
+		<div class="nav_button">
+			<a href="/CreateCountry" ><input type="button" value="Create"></a>
+		</div>
+	</body>
+</html>

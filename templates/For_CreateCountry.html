@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<link rel='stylesheet' href='/static/style.css'>
+</head>
+	<body>
+		<div class='createform'>
+		<form action="/SaveCountry">
+		<h1>Create Form</h1>
+			<div>
+				<div>Country Name :</div>
+				<div><input name="name" type="text"></div>
+			</div>
+			<div>
+				<div>Capital :</div>
+				<div><input name="capital"	 type="text"></div>
+			</div>
+			<div>
+				<div>Continent :</div>
+				<div><input name="continent" type="text"></div>
+			</div>
+			<div>
+				<div>Population :</div>				
+				<div><input name="population" type="text"></div>
+			</div>
+			<div>
+				<div>Top Level Domain :</div>				
+				<div><input name="tld" type="text"></div>
+			</div>
+			<div>
+				<div>Area :</div>				
+				<div><input name="area" type="text"></div>
+			</div>
+			<div>
+				<div>GDP (million $) :</div>				
+				<div><input name="gdp" type="text"></div>
+			</div>
+			<div>
+				<div><img src="{{c['flag']}}" class="big"></div>
+			</div>
+
+		</div>
+		<input class="submit1" type="submit" value="Submit">
+		</form>
+	</body>
+</html>
