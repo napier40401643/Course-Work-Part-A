@@ -37,7 +37,8 @@ def continentPage(con):
     return render_template(
         'For_Continent.html', len_of_cl = len(cl),
         cl = cl,
-        con = con
+        con = con,
+        lota=lota
         )
 
 @app.route('/CountryName/<C_Name>')

@@ -1,16 +1,20 @@
 body{
 	font-family: times;
 	font-size: 2ex;
-	background: #00FFFF;
-	padding-left: 4ex;
+	background-image: url("world.png");
+	background-repeat: no-repeat;
+	background-size: 260ex;
+	padding-left: 5ex;
+	background-color: azure;
+
 }
 img.big{
-	width: 450px;
+	width: 300px;
 	border: solid thin #abebc6;
 	position: absolute;
 	left: 50ex;
 	right: 100ex;
-	top: 10ex;
+	top: 15ex;
 }
 
 img.tiny{
@@ -31,7 +35,7 @@ a{
 
 .nav_button input{
 	display: inline-block;
-	background-color: teal;
+	background-color: #00ced1;
 	font-family: Georgia;
 	border: solid thin pink;
 	padding: 1ex;
@@ -57,38 +61,49 @@ a{
 	width: 7ex;
 	text-align: center;
 	display: inline-block;
-	background-color:  #d1f2eb;
+	background-color:  #00ced1;
 	font-family: Georgia;
 }
 .submit{
 	border: solid thin pink;
 	border-radius: 0.4ex;
-	width: 10ex;
-	height: 5.5ex;
-	background-color:  #d1f2eb;
+	width: 8ex;
+	height: 4ex;
+	background-color:  #00ced1;
 	font-family: Georgia;
-	font-size: 2ex;
+	font-size: 20px;
 	color: blue;
 }
 .submit1{
 	border-radius: 0.6ex;
-	width: 10ex;
-	height: 5ex;
+	width: 8ex;
+	height: 4ex;
 	font-family: Georgia;
-	font-size: 2ex;
+	font-size: 20px;
 	color: blue;
-
+	margin-left: 9ex; 
+	background-color:  #00ced1;
+	margin-top: 10px;
 }
 .tex{
 	width: 22ex;
 	height: 3.5ex;
 	font-weight: bold;
 }
-.createform{
+#createform{
 
-	padding-left: 3ex;
+	margin-left: 10ex;
 	padding: 1ex;
+	line-height: 28px;
 }
-.alpha a{
-	background-color: pink; 
+#alpha a:link{
+	background-color: #00ced1; 
+	display: inline-block;
+	border-radius: 4px;
+	width: 20px;
+	text-align: center;
 }
+#alpha a:hover{
+	background-color: red; 
+}
+
