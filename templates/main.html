@@ -5,11 +5,16 @@
 </head>
 	<body>
 		<h1>List of Countries</h1>
+		<div>
+			{% for al in lota %}
+			<a href="/ForAlphabetic/{{al}}">{{al}}</a>
+			{% endfor %}
+		</div>
 		<div>There are {{w|length}} countries on this page.</div>
 		<ul>
 			{% for c in w %}
 			<li><a href="/CountryName/{{c.name}}">
-			<img src=x'{{c.flag}}' class="tiny"> {{c.name}}</a></li>
+			<img src='{{c.flag}}' class="tiny"> {{c.name}}</a></li>
 			{% endfor %}
 		</ul>
 		{% if page_number==0 %}
