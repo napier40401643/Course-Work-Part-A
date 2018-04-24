@@ -21,7 +21,8 @@ def BeginPage(m):
     num = int(m)
     return render_template('main.html', w=w[num:num+page_size],
                            page_number = num,
-                           page_size = page_size
+                           page_size = page_size,
+                           lota=lota
                            )
 
 @app.route('/Country/<cty>')
