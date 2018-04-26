@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel='stylesheet' href='/static/style.css'>
+</head>
+<body>
+	<h1>{{con}}</h1>
+	<div>
+	<form id="alpha">
+		{% for b in lota %}
+		<a href="/ForAlphabetic/{{b}}">{{b}}</a>
+		{% endfor %}
+	</form>
+	</div>
+	<div>
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+</html>

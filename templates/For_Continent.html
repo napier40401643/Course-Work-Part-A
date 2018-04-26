@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div>There are {{len_of_cl}} countries in {{con}}</div>
+<div><h3>There are {{len_of_cl}} countries in {{con}}</h3></div>
 	<ul>
 		{% for c in cl %}
 		<li><a href="/CountryName/{{c.name}}">
