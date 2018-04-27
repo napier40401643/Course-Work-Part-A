@@ -5,7 +5,7 @@
 	<ul>
 	{% for c in w %}
 		<li><a href="/CountryName/{{c.name}}">
-		<img src='{{c.flag}}' class="tiny"> {{c.name}}</a></li>
+		<img src='/static/flags/{{c.tld}}.gif' class="tiny"> {{c.name}}</a></li>
 	{% endfor %}
 	</ul>
 	{% if page_number==0 %}

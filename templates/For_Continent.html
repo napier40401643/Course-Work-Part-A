@@ -4,7 +4,7 @@
 	<ul>
 		{% for c in cl %}
 		<li><a href="/CountryName/{{c.name}}">
-		<img src='{{c.flag}}' class="tiny"> {{c.name}}</a></li>
+		<img src='/static/flags/{{c.tld}}.gif'  class="tiny"> {{c.name}}</a></li>
 		{% endfor %}
 	</ul>
 {% endblock %}
