@@ -3,8 +3,8 @@ import json
 
 page_number = 10
 w = json.load(open("worldl.json"))
-lota = sorted(list(set([c['name'][0] for c in w])))
-print(lota)
+alph = sorted(list(set([c['name'][0] for c in w])))
+print(alph)
 
 for c in w:
         c['tld'] = c['tld'][1:]
@@ -14,7 +14,7 @@ app = Flask(__name__)
 @app.route('/')
 def mainPage():
     return render_template('main.html', page_number=0, w=w[0:page_size],
-                           page_size=page_size, lota=lota)
+                           page_size=page_size, alph=alph)
 
 @app.route('/Begin/<m>')
 def BeginPage(m):
@@ -22,7 +22,7 @@ def BeginPage(m):
     return render_template('main.html', w=w[num:num+page_size],
                            page_number = num,
                            page_size = page_size,
-                           lota=lota
+                           alph=alph
                            )
 
 @app.route('/Country/<cty>')
@@ -38,7 +38,7 @@ def continentPage(con):
         'For_Continent.html', len_of_cl = len(cl),
         cl = cl,
         con = con,
-        lota=lota
+        alph=alph
         )
 
 @app.route('/CountryName/<C_Name>')
@@ -109,7 +109,7 @@ def ForAlphabetic(con):
         'For_Continent.html', len_of_cl = len(cl),
         cl = cl,
         con = con,
-        lota = lota
+        alph = alph
         )
 
 if __name__ == '__main__':
